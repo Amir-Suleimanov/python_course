@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Здравствуйте, {{user.get_username}}
+Пожалуйста перейдите на свою почту и подтвердите её для завершаения регистрации, чтобы не потерять аккаунт
+
+{{ protocol }}://{{ domain }}{% url 'main:verify_email' uidb64=uid token=token %}
+
+
+{% endautoescape %}

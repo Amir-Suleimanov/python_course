@@ -1,0 +1,346 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+
+body {
+    min-height: 100vh;
+    background-size: 100%;
+    /* background-image: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(media/Cid.jpg); */
+    background-position: center;
+    background-image: linear-gradient(to left, rgb(70, 147, 255), rgba(142, 55, 255, 0.929));
+    background-attachment: fixed;
+}
+
+.header {
+    position: relative;
+    top: 100;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(135, 49, 255, 0.16);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+.header span {
+    color: greenyellow;
+    transition: .50s ease;
+}
+
+.name {
+    font-size: 190%;
+    color: white;
+    text-decoration: none;
+    font-weight: 520;
+}
+
+.navbar a {
+    font-size: 100%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: .20s ease;
+}
+
+.navbar a:hover {
+    color: rgb(114, 82, 255);
+    transition: .20s ease;
+}
+
+.navbar span:hover {
+    color: rgb(114, 82, 255);
+    transition: .50s ease;
+}
+
+
+
+#check {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    right: 5%;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .header {
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 760px) {
+    .menu {
+        display: inline-flex;
+    }
+
+    #check:checked~.menu #icon-menu {
+        display: none;
+    }
+
+    .menu #close-menu {
+        display: none;
+    }
+
+
+    #check:checked~.menu #close-menu {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(172, 124, 255, 0.15);
+        backdrop-filter: blur(50px);
+        overflow: hidden;
+        transition: .2s ease;
+    }
+
+    #check:checked~.navbar {
+        height: 17rem;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        transition: .2s ease;
+    }
+}
+
+/* Выбор курсов */
+.blocks {
+    display: inline;
+}
+
+.title {
+    display: grid;
+    margin-bottom: 0px;
+    margin-top: 15vh;
+    margin-left: 28vh;
+    color: aliceblue;
+}
+
+.title span {
+    color: greenyellow;
+}
+
+.catalog-table-courses {
+    color: rgb(255, 255, 255);
+}
+
+.catalog-table-courses__tablelist {
+    display: flex;
+    padding-left: 20vh;
+    font-size: 18px;
+    background-color: rgba(144, 47, 255, 0.629);
+}
+
+.catalog-table-courses__tablelist button {
+    background: transparent;
+    border: none;
+    padding-right: 10px;
+    color: rgb(255, 255, 255);
+    outline: none;
+    transition: .5s ease;
+}
+
+.catalog-table-courses__tablelist button:hover {
+    color: rgb(85, 255, 47);
+    transition: .5s ease;
+}
+
+.catalog-table-courses__tablelist li {
+    border-left: 10px;
+    border-color: black;
+    padding: 10px;
+    margin-left: 45px;
+}
+
+
+/* Карточка товара */
+.card {
+    width: 260px;
+    min-height: 350px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Размещаем элементы в колонку */
+    border-radius: 4px;
+    transition: 0.2s;
+    position: relative;
+    margin-bottom: 10vh;
+}
+
+/* При наведении на карточку - меняем цвет тени */
+.card:hover {
+    box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+}
+
+.card__top {
+    flex: 0 0 220px;
+    /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+    position: relative;
+    overflow: hidden;
+    /* Скрываем, что выходит за пределы */
+
+}
+
+/* Контейнер для картинки */
+.card__image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card__image>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Встраиваем картинку в контейнер card__image */
+    transition: 0.2s;
+}
+
+/* При наведении - увеличиваем картинку */
+.card__image:hover>img {
+    transform: scale(1.1);
+}
+
+/* Размещаем скидку на товар относительно изображения */
+.card__label {
+    padding: 4px 8px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(105, 105, 105, 0.813);
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
+.card__bottom {
+    display: inline;
+    flex-direction: column;
+    flex: 1 0 auto;
+    /* Занимаем всю оставшуюся высоту карточки */
+    padding: 10px;
+}
+
+.card__prices {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around   ;
+    margin-bottom: 10px;
+    flex: 0 0 50%;
+    /* Размещаем цены равномерно в две колонки */
+}
+
+.card_price {
+    font-size: 18px;
+}
+.card_price_ {
+    align-items: center;
+}
+
+.card_discount {
+    font-weight: bolder;
+    /* text-align: left; */
+}
+/* .card_common {
+    text-align: right; 
+} */
+.card_text {
+    color: rgb(192, 192, 192);
+}
+
+.card__title {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    text-decoration: none;
+    color: #000000;
+}
+
+.card__add {
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    font-size: 17px;
+    color: #000000;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+    /* Меняем курсор при наведении */
+    transition: 0.2s;
+    margin-top: auto;
+    /* Прижимаем кнопку к низу карточки */
+}
+
+.card__add:hover {
+    border: 1px solid #000000;
+    background-color: blueviolet;
+    color: #fff;
+    transition: 0.4s ease;
+}
+
+.cards {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 1000px;
+    margin-left: 150px;
+}
+
+
+
+/* add_course */
+.features {
+    color: aliceblue;
+}

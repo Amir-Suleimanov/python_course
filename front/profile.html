@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+
+    <link rel="stylesheet" href="static/profile.css">
+</head>
+<body>
+    <header class="header">
+        <a href=".\index.html" class="name">Egg<span>Courses</span></a>
+
+        <input type="checkbox" id="check">
+
+        <label for="check" class="menu">
+            <i class="bx bx-menu" id="icon-menu"></i>
+            <i class="bx bx-x" id="close-menu"></i>
+        </label>
+
+
+        <nav class="navbar">
+            <a href=".\index.html">Главная</a>
+            <a href=".\products.html">Курсы</a>
+            <a href=".\profile.html">Профиль</a>
+            <a href=".\support.html"><span>Тех. Поддержка</span></a>
+            <a href=".\auth.html"><span>Регистрация</span></a>
+        </nav>
+    </header>
+    <div class="title">
+        <h1>Ваш <span>Профиль</span> </h1>
+    </div>
+    <div class="profile">
+        <div class="profile__left">
+            <img src="static/icons/IT_courses_logo.png" alt="">
+            <div class="profile__name">Name</div>
+            <div class="rating"> 
+                <div class="like">
+                    <img src="static/icons/like.png" alt="" class="like__img">
+                    <span>10</span>    
+                </div>
+                <div class="dislike">
+                    <img src="static/icons/dislike.png" alt="" class="dislike__img">
+                    <span>20</span> 
+                </div>
+            </div>
+            <div class="author">
+                <!-- Если автор -> Явлается автором и слева автором каких курсов. Если нет то Ученик -->
+                <span class="author__span">Преподаватель</span>
+                <!-- Явлается <span class="author__student">учеником</span> -->
+            </div>
+        </div>
+        <div class="profile__right">
+            
+            <h3><span class="fin_span">Купленные курсы</span></h3>
+            <div class="profile__finished_course">
+                <div class="course profile__started_courses">
+                    <img src="static/icons/Home.png" alt="">
+                    <div class="course_info">
+                        <div class="course_name">
+                            <a href="">Name</a>
+                        </div>
+                        <div class="course_discription">
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3><span class="author__span">Авторские курсы</span></h3>
+            <div class="profile__author_course">
+                <div class="course profile__started_courses">
+                    <img src="static/icons/Home.png" alt="">
+                    <div class="course_info">
+                        <div class="course_name">
+                            <a href="">Name</a>
+                        </div>
+                        <div class="course_discription">
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                            Этот курс такой-то такой-то
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

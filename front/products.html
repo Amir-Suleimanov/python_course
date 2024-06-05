@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>EggCourses</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Навигационная панель -->
+    <header class="header">
+        <a href=".\index.html" class="name">Egg<span>Courses</span></a>
+
+        <input type="checkbox" id="check">
+
+        <label for="check" class="menu">
+            <i class="bx bx-menu" id="icon-menu"></i>
+            <i class="bx bx-x" id="close-menu"></i>
+        </label>
+
+
+        <nav class="navbar">
+            <a href=".\index.html">Главная</a>
+            <a href=".\products.html">Курсы</a>
+            <a href=".\profile.html">Профиль</a>
+            <a href=".\support.html"><span>Тех. Поддержка</span></a>
+            <a href=".\auth.html"><span>Регистрация</span></a>
+        </nav>
+    </header>
+    <!-- Название страницы -->
+    <div class="title">
+        <h1>Онлайн <span>курсы</span> </h1>
+    </div>
+    <!-- Выбор курсов -->
+    <div class="catalog-table-courses">
+        <ul class="catalog-table-courses__tablelist">
+            <li><button>Новые курсы</button></li>
+            <li><button>Хиты</button></li>
+            <li><button>Рекомендуем</button></li>
+            <li><button>Aiogram</button></li>
+            <li><button>Django</button></li>
+        </ul>
+    </div>
+
+    <!-- Карточка товара -->
+    <div class="cards">
+        <div class="card">
+            <!-- Верхняя часть -->
+            <div class="card__top">
+                <!-- Изображение-ссылка товара -->
+                <a href="#" class="card__image">
+                    <img src="" alt="" />
+                </a>
+                <!-- Скидка на товар -->
+                    <div class="card__label">-10 %</div>
+            </div>
+            <!-- Нижняя часть -->
+            <div class="card__bottom">
+                <!-- Цены на товар (с учетом скидки и без)-->
+                <div class="card__prices">
+                                <div class=''>
+                                    <div class='card_price card_discount'>10000 ₽</div>
+                                    <div class='card_text'>Со скидкой</div>
+                                </div>
+                        <div class='card_price_'>
+                            <s>
+                                <div class='card_price card_common'>100000 ₽</div>
+                                <div class='card_text'>Обычная</div>
+                            </s>
+                        </div>
+                    </div>
+                <!-- Ссылка-название товара -->
+                <a href="#" class="card__title">
+                    Название курса
+                </a>
+                <!-- Кнопка добавить в корзину -->
+                <button class="card__add">В корзину</button>
+            </div>
+        </div>
+    </div>
+    <!-- Пагинация -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center my-4">
+            <div class="custom-shadow d-flex">
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+</body>
+
+</html>

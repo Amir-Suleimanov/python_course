@@ -1,0 +1,44 @@
+[
+    {
+        "model": "main.coursecardmodel",
+        "pk": 3,
+        "fields": {
+            "title": "Полный курс по Python от Yandex",
+            "slug": "polnyj-kurs-po-python-ot-yandex",
+            "creation_date": "2024-05-26",
+            "description": "Этот курс был разработан командой Yandex, который научит вас основам языка программирования Python, и покажет вам что значит взламывать базы крипто-олигархов.",
+            "price": 100000,
+            "discount": 10,
+            "photo": "photo_course/piton_practicum.yandex.jpg",
+            "author": 2
+        }
+    },
+    {
+        "model": "main.coursecardmodel",
+        "pk": 4,
+        "fields": {
+            "title": "Курс по С++ для начинающих",
+            "slug": "kurs-po-s-dlya-nachinayushih",
+            "creation_date": "2024-05-28",
+            "description": "C++ — это язык программирования, который был разработан в 80-х годах прошлого века как расширение языка C.\r\n\r\nЭтот язык отличается от Си тем, что имеет больший набор возможностей, включая объектно-ориентированное программирование и шаблоны.",
+            "price": 200000,
+            "discount": 0,
+            "photo": "photo_course/IT_courses_logo.png",
+            "author": 2
+        }
+    },
+    {
+        "model": "main.coursecardmodel",
+        "pk": 5,
+        "fields": {
+            "title": "Линукс для системных администраторов",
+            "slug": "linuks-dlya-sistemnyih-administratorov",
+            "creation_date": "2024-05-29",
+            "description": "Этот курс научит вас как основам линукс так и администрированию на этой прекрасной операционной системе. В рамках курса будет рассматриваться дистрибутив Ubuntu.",
+            "price": 20000,
+            "discount": 0,
+            "photo": "photo_course/Ubuntu-icon.png",
+            "author": 2
+        }
+    }
+]

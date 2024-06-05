@@ -1,0 +1,70 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Вход в аккаунт</title>
+    <link rel="stylesheet" href="{% static "login.css" %}" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="login-box-reg">
+            <form action="" method='POST'>
+                {% csrf_token %}
+                
+                <div>
+                    {% if errors.username %}<div class="input-box">{{errors.username}}</div>{% endif %}<br>
+                    {% if errors.email %}<div class="input-box">{{errors.email}}</div>{% endif %}<br>
+                    {% if errors.password %}<div class="input-box">{{errors.password}}</div>{% endif %}<br>
+                </div>
+                <div>
+                    <h2>Регистрация</h2>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    
+                    {{form.username}}
+                    <label>Имя пользователя</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    {{form.email}}
+                    <label>Email</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    {{form.password1}}
+                    <label>Пароль</label>
+                </div>
+                
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    {{form.password2}}
+                    <label>Повторите пароль</label>
+                </div>
+                <button type="submit"> Зарегестрироваться </button>
+                <div class="register-link">
+                    <p>У вас уже есть аккаунт? <a href="{% url "main:login" %}"> Войти в аккаунт </a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+
+</html>
