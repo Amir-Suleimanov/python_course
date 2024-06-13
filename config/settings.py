@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
+    'users',
 
     'social_django',
 ]
@@ -59,7 +59,7 @@ MIDDLEWARE = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'main.authentication.EmailAuthBackend', 
+    'users.authentication.EmailAuthBackend', 
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.google.GoogleOAuth2',
 ]
@@ -68,7 +68,6 @@ AUTHENTICATION_BACKENDS = [
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 ROOT_URLCONF = 'config.urls'
 
@@ -155,7 +154,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'static/media/'
 
-LOGIN_URL = 'main:login'
+LOGIN_URL = 'users:login'
 
 
-AUTH_USER_MODEL = 'main.User'
+AUTH_USER_MODEL = 'users.User'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'smilepatriktop1@gmail.com'
+EMAIL_HOST_PASSWORD = 'udksyjmjtiygqzkm'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

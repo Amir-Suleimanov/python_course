@@ -1,23 +1,9 @@
 from django.db import models
 
-from django.contrib.auth.models import AbstractUser
-
 from pytils.translit import slugify
 from autoslug import AutoSlugField
 
-
-class User(AbstractUser):
-    is_author = models.BooleanField(default=False, editable=True)
-    course_count = models.BigIntegerField(default=0, editable=True, verbose_name='Количество курсов')
-    bought_course = models.ManyToManyField('CourseCardModel', blank=True)
-    email = models.EmailField(blank=False, null=False, unique=True, verbose_name='Email')
-    user_photo = models.ImageField(upload_to='user_photo', blank=True, null=True, verbose_name='Фотография профиля')
-    
-    def __str__(self):
-        return self.username
-
-
-
+from users.models import User
 
 
 class CourseCardModel(models.Model):

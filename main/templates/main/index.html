@@ -16,6 +16,7 @@
 
 
 {% block content %}
+{{comment}}
 <div class="conteiner">
     <div class="service-content">
         <div class="service">
@@ -24,9 +25,9 @@
             <div class="card-content">
                 {% if user.is_authenticated %}
                     <div class="card">
-                        <a href="{% url "main:profile" %}"><img src="{% static "media/profile.png" %}" alt=""></a>
-                        <a href="{% url "main:profile" %}"> <h2>Профиль</h2> </a>
-                        <a href="{% url "main:profile" %}"> <p>Ваш личный кабинет</p> </a>
+                        <a href="{% url "users:profile" %}"><img src="{% static "media/profile.png" %}" alt=""></a>
+                        <a href="{% url "users:profile" %}"> <h2>Профиль</h2> </a>
+                        <a href="{% url "users:profile" %}"> <p>Ваш личный кабинет</p> </a>
                     </div>
                     <div class="card">
                         <a href="{% url "main:goods" %}"><img src="{% static "media/main-courses.jpg" %}" alt=""></a>
@@ -40,9 +41,9 @@
                     </div>
                 {% else %}
                     <div class="card">
-                        <a href="{% url "main:login" %}"><img src="{% static "media/register.png" %}" alt=""></a>
-                        <a href="{% url "main:login" %}"> <h2>Вход в аккаут</h2> </a>
-                        <a href="{% url "main:login" %}"> <p>Перейдите по ссылке чтобы войти в аккаунт и продолжить</p> </a>
+                        <a href="{% url "users:login" %}"><img src="{% static "media/register.png" %}" alt=""></a>
+                        <a href="{% url "users:login" %}"> <h2>Вход в аккаут</h2> </a>
+                        <a href="{% url "users:login" %}"> <p>Перейдите по ссылке чтобы войти в аккаунт и продолжить</p> </a>
                     </div>
                 {% endif %}
                 </div>

@@ -2,7 +2,7 @@
 /course_venv
 .pylintrc
 __pycache__/
-.env
+
 
 #ide stuff
 .vscode
@@ -10,6 +10,10 @@ __pycache__/
 
 #django stuff
 db.sqlite3
-./media/
+./static/media/
 
 /front/
+fixtures/
+static/media/bad-request.jpg
+static/media/photo_course/bp.jpeg
+static/media/photo_course/piton_practicum.yandex_7aZIWoL.jpg

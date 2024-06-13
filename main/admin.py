@@ -1,14 +1,7 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import User, CourseCardModel
+from .models import CourseCardModel
 
 # Register your models here.
-
-@admin.register(User)
-class UserAdmin_(admin.ModelAdmin):
-    list_display = ['username', 'email', 'is_author', 'is_staff', 'course_count']
-    filter_horizontal = ['bought_course']
-
 
 
 @admin.register(CourseCardModel)

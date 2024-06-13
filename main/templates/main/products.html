@@ -24,7 +24,7 @@
     <!-- Карточки товара -->
     <div class="cards">
 
-        {% for card  in cards %}
+        {% for card in cards %}
         <div class="card">
             <!-- Верхняя часть -->
             <div class="card__top">
@@ -32,6 +32,8 @@
                 <a href="{{card.slug}}" class="card__image">
                     {% if card.photo %}
                         <img src="{{card.photo.url}}" alt="" />
+                    {% else %}
+                        <img src="{% static "media/bad-request.jpg" %}" alt="">
                     {% endif %}
                 </a>
                 <!-- Скидка на товар -->
