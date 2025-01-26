@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static "profile.css" %}">
+{% endblock static %}
+
+
+{% block content %}
+<div class="title">
+    <h1>Ваш <span>Профиль</span> </h1>
+</div>
+<div class="profile">
+    <div class="profile__left">
+        {% if user.user_photo %}
+            <img src="{{user.user_photo.url}}" alt="">
+        {% else %}
+        <img src="{% static "media/profile.png" %}" alt="">
+        {% endif %}
+        <div class="profile__name">{{user.username}}</div>
+        <div class="author">
+            <!-- Если автор -> Явлается автором и слева автором каких курсов. Если нет то Ученик -->
+            {% if user.is_author %}
+                <span class="author__span">Преподаватель</span>
+            {% else %}
+            <span class="author__student">Пользователь</span> 
+            {% endif %}
+        </div>
+        <form action="{% url "main:add_course" %}">
+            <button> Создать курс </button>
+        </form>
+    </div>
+    <div class="profile__right">
+        {% if user.bought_course.all %}
+            <h3><span class="fin_span">Приобретённые курсы</span></h3>
+            {% for course in user.bought_course.all %}
+                <div class="profile__finished_course">
+                    <div class="course profile__started_courses">
+                        {% if course.photo %}
+                            <img src="{{course.photo.url}}" alt="">
+                        {% else %}
+                            <img src="{% static "media/bad-request.jpg" %}" alt="">
+                        {% endif %}
+                        <div class="course_info">
+                            <div class="course_name">
+                                <a href="{% url "main:card_info" course.slug %}">{{course.title}}</a>
+                            </div>
+                            <div class="course_discription">
+                                {{course.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if user.is_author %}
+            <h3><span class="author__span">Авторские курсы</span></h3>
+            {% for course in user_courses %}
+            <div class="profile__author_course">
+                <div class="course profile__started_courses">
+                    {% if course.photo %}
+                        <img src="{{course.photo.url}}" alt="">
+                    {% else %}
+                        <img src="{% static "media/bad-request.jpg" %}" alt="">
+                    {% endif %}
+                    <div class="course_info">
+                        <div class="course_name">
+                            <a href="{% url "main:card_info" course.slug %}">{{course.title}}</a>
+                        </div>
+                        <div class="course_discription">
+                            {{course.description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="delete_course">
+                <a href="{% url "main:delete_course" course.slug%}">Удалить этот курс</a> 
+                <a href="{% url "main:edit_course" course.slug%}">Редактировать</a> 
+            </div>
+            
+        {% endfor %}
+        {% endif %}
+    </div>
+    
+</div>
+{% endblock content %}

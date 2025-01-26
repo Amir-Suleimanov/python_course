@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href={% static "style.css" %}>
+{% endblock static %}
+
+{% block content %}
+<div class="features">
+    <h1>Создание курса</h1><br>
+        <form method="post" action='' class="form" enctype="multipart/form-data">
+            Название {{ form.title }}<br>
+            Описание {{ form.description }}<br>
+            Иконка курса {{form.photo}} <br>
+            Цена курса ₽{{form.price}} <br>
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit"> Создать </button>
+        </form>
+        <br>
+</div>
+{% endblock content %}

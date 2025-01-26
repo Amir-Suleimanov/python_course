@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href={% static "style.css" %}>
+{% endblock static %}
+
+{% block content %}
+    <!-- Название страницы -->
+    <div class="title">
+        <h1>Онлайн <span>курсы</span> </h1>
+    </div>
+    <!-- Выбор курсов -->
+    <div class="catalog-table-courses">
+        <ul class="catalog-table-courses__tablelist">
+            <li><button>Новые курсы</button></li>
+            <li><button>Хиты</button></li>
+            <li><button>Рекомендуем</button></li>
+            <li><button>Aiogram</button></li>
+            <li><button>Django</button></li>
+        </ul>
+    </div>
+
+    <!-- Карточки товара -->
+    <div class="cards">
+
+        {% for card in cards %}
+        <div class="card">
+            <!-- Верхняя часть -->
+            <div class="card__top">
+                <!-- Изображение-ссылка товара -->
+                <a href="{{card.slug}}" class="card__image">
+                    {% if card.photo %}
+                        <img src="{{card.photo.url}}" alt="" />
+                    {% else %}
+                        <img src="{% static "media/bad-request.jpg" %}" alt="">
+                    {% endif %}
+                </a>
+                <!-- Скидка на товар -->
+                {% if card.discount > 0 %}
+                    <div class="card__label">-{{card.discount}}%</div>
+                {% endif %}
+            </div>
+            <!-- Нижняя часть -->
+            <div class="card__bottom">
+                <!-- Цены на товар (с учетом скидки и без)-->
+                <div class="card__prices">
+                    {% if card.discount > 0 %}
+                        {% for id, price in discount_price %}
+                            {% if card.id == id %}
+                                <div class=''>
+                                    <div class='card_price card_discount'>{{ price }} ₽</div>
+                                    <div class='card_text'>Со скидкой</div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <div class='card_price_'> 
+                            <s>
+                                <div class='card_price card_common'>{{card.price}} ₽</div>
+                                <div class='card_text'>Обычная</div>
+                            </s>
+                        </div>
+                    {% else %}
+                        <div class='card_price_'>
+                            <div class='card_price card_common'>{{card.price}} ₽</div>
+                            <div class='card_text'>Обычная</div>
+                        </div>
+                    {% endif %}
+                    </div>
+                <!-- Ссылка-название товара -->
+                <a href="{{card.slug}}" class="card__title">
+                    {{card.title}}
+                </a>
+                <!-- Кнопка добавить в корзину -->
+                <button class="card__add">В корзину</button>
+            </div>
+        </div>
+        {% endfor %}
+
+        
+    </div>
+{% endblock content %}

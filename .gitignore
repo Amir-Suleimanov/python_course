@@ -1,0 +1,22 @@
+#python stuff
+/course_venv
+.pylintrc
+__pycache__/
+
+
+#ide stuff
+.vscode
+.idea
+.env
+
+
+#django stuff
+db.sqlite3
+
+react/
+# /front/
+fixtures/
+static/
+# static/media/bad-request.jpg
+# static/media/photo_course/bp.jpeg
+# static/media/photo_course/piton_practicum.yandex_7aZIWoL.jpg
